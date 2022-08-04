@@ -9,10 +9,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieComponent } from './public/movie/movie.component';
 import { MovieDetailsComponent } from './public/movie/movie-details.component';
 import { CastDetailsComponent } from './public/cast/cast-details.component';
+import { GenreComponent } from './public/genre/genre.component';
 
 @NgModule({
-  declarations: [AppComponent, MovieComponent, MovieDetailsComponent, CastDetailsComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule, NgbModule],
+  declarations: [
+    AppComponent,
+    MovieComponent,
+    MovieDetailsComponent,
+    CastDetailsComponent,
+    GenreComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
