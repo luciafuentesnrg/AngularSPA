@@ -9,7 +9,7 @@
           <img
             src="{{ movie.posterUrl }}"
             alt="{{ movie.title }}"
-            [routerLink]="'/Movie-Details/:{{movie.movieId}}'"
+            [routerLink]="['/Movie-Details/', movie.id]"
           />
         </div>
       </div>

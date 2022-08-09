@@ -248,18 +248,11 @@
             alt="{{ cast.name }}"
           />
           <p style="display: inline; margin-left: 80px">{{ cast.name }}</p>
-          <!-- <a
-            asp-controller="Cast"
-            asp-action="Details"
-            asp-route-id="{{ cast.id }}"
-          > -->
-          <p
-            style="display: inline; color: black; margin-left: 40px"
-            [routerLink]="'Cast-Details/:{{cast.id}}'"
-          >
-            {{ cast.character }}
-          </p>
-          <!-- </a> -->
+          <a [routerLink]="['/Cast-Details/', cast.id]">
+            <p style="display: inline; color: black; margin-left: 40px">
+              {{ cast.character }}
+            </p>
+          </a>
         </li>
       </ul>
     </div>

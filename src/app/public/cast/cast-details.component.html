@@ -15,11 +15,7 @@
       <hr style="width: 100%; text-align: left; margin-left: 0" />
       <ul class="list-group list-group-flush" *ngFor="let movie of cast.movies">
         <li class="list-group-item">
-          <a
-            asp-controller="Movies"
-            asp-action="Details"
-            asp-route-id="@movie.Id"
-          >
+          <a [routerLink]="['/Movie-Details/', movie.id]">
             <p style="display: inline; color: black; margin-left: 40px">
               {{ movie.title }}
             </p>
