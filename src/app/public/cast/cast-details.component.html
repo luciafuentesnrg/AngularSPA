@@ -1,1 +1,31 @@
-<p>cast-details works!</p>
+<h3>{{ cast.name }}</h3>
+<hr style="width: 100%; text-align: left; margin-left: 0" />
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <img
+        src="{{ cast.profilePath }}"
+        class="img-Cast"
+        alt="{{ cast.name }}"
+        style="display: inline"
+      />
+    </div>
+    <div class="col-6">
+      <h3>MOVIES</h3>
+      <hr style="width: 100%; text-align: left; margin-left: 0" />
+      <ul class="list-group list-group-flush" *ngFor="let movie of cast.movies">
+        <li class="list-group-item">
+          <a
+            asp-controller="Movies"
+            asp-action="Details"
+            asp-route-id="@movie.Id"
+          >
+            <p style="display: inline; color: black; margin-left: 40px">
+              {{ movie.title }}
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

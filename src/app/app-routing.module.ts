@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CastDetailsComponent } from './public/cast/cast-details.component';
+import { CastComponent } from './public/cast/cast.component';
+import { AddGenreComponent } from './public/genre/add-genre.component';
 import { GenreComponent } from './public/genre/genre.component';
 import { MovieDetailsComponent } from './public/movie/movie-details.component';
 import { MovieComponent } from './public/movie/movie.component';
@@ -10,6 +12,7 @@ const routes: Routes = [
   { path: 'Genre', component: GenreComponent },
   { path: 'Movie-Details/:movieId', component: MovieDetailsComponent },
   { path: 'Cast-Details/:castId', component: CastDetailsComponent },
+  { path: 'Add-Genre', component: AddGenreComponent },
   {
     path: 'Account',
     loadChildren: () =>
@@ -25,6 +28,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user/user.module').then((mod) => mod.UserModule),
   },
+  { path: 'Cast', component: CastComponent },
 ];
 
 @NgModule({
