@@ -24,12 +24,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-3">
-          <h5 style="color: rgb(219, 215, 215); font-weight: lighter">
-            {{ movie.runTime }} m | {{ movie.releaseDate }}
-          </h5>
+        <div class="col-4">
+          <span class="inline-flag">
+            <h5 style="color: rgb(219, 215, 215); font-weight: lighter">
+              {{ movie.runTime }} m |
+              <option value="yyyy">
+                {{ movie.releaseDate | date: "yyyy" }}
+              </option>
+            </h5>
+          </span>
         </div>
-        <div class="col-9" *ngFor="let genre of movie.genres">
+        <div class="col-8" *ngFor="let genre of movie.genres">
           <div class="btn-group" role="group" aria-label="Third group">
             <button type="button" class="btn btn-secondary btn-sm bg-genre-btn">
               {{ genre.name }}
@@ -107,7 +112,9 @@
             class="btn btn-secondary btn-sm bg-genre-btn"
             style="display: inline"
           >
-            {{ movie.releaseDate }}
+            <option value="MMMM d, yyyy">
+              {{ movie.releaseDate | date: "MMMM d, yyyy" }}
+            </option>
           </button>
         </li>
         <li class="list-group-item">
@@ -129,7 +136,7 @@
             class="btn btn-secondary btn-sm bg-genre-btn"
             style="display: inline"
           >
-            {{ movie.runTime }}
+            {{ movie.runTime }} m
           </button>
         </li>
         <li class="list-group-item">

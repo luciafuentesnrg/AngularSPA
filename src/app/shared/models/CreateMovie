@@ -1,0 +1,11 @@
+export interface CreateMovie {
+  title: string;
+  posterUrl: string;
+  overview: string;
+  tagline: string;
+  budget: number;
+  revenue: number;
+  releaseDate: string;
+  runTime: number;
+  price: number;
+}

@@ -1,1 +1,130 @@
-<p>create-movie works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Create Movie</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <form
+          class="form"
+          [formGroup]="createMovieForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="form-group">
+            <label>Movie Title</label>
+            <input type="text" class="form-control" formControlName="title" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['title'].touched || submitted) && (createMovieForm.controls['title'].errors?.['required'])"
+            >
+              Movie Name is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>PosterUrl</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="posterUrl"
+            />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['posterUrl'].touched || submitted) && (createMovieForm.controls['posterUrl'].errors?.['required'])"
+            >
+              Poster Url is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Overview</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="overview"
+            />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['overview'].touched || submitted) && (createMovieForm.controls['overview'].errors?.['required'])"
+            >
+              Overview is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Tag Line</label>
+            <input type="text" class="form-control" formControlName="tagline" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['tagline'].touched || submitted) && (createMovieForm.controls['tagline'].errors?.['required'])"
+            >
+              Tag Line is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Budget</label>
+            <input type="text" class="form-control" formControlName="budget" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['budget'].touched || submitted) && (createMovieForm.controls['budget'].errors?.['required'])"
+            >
+              Budget is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Revenue</label>
+            <input type="text" class="form-control" formControlName="revenue" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['revenue'].touched || submitted) && (createMovieForm.controls['revenue'].errors?.['required'])"
+            >
+              Revenue is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Release Date</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="releaseDate"
+            />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['releaseDate'].touched || submitted) && (createMovieForm.controls['releaseDate'].errors?.['required'])"
+            >
+              Release Date is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Run Time</label>
+            <input type="text" class="form-control" formControlName="runtime" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['runtime'].touched || submitted) && (createMovieForm.controls['runTime'].errors?.['required'])"
+            >
+              Run Time is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" class="form-control" formControlName="price" />
+            <span
+              class="text-danger"
+              *ngIf="(createMovieForm.controls['price'].touched || submitted) && (createMovieForm.controls['price'].errors?.['required'])"
+            >
+              Price is Required</span
+            >
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!createMovieForm.valid"
+            >
+              Create Movie
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

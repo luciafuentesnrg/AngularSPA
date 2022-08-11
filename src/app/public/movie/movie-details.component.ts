@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/core/services/movies.service';
 import { MovieDetails } from 'src/app/shared/models/MovieDetails';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
@@ -11,7 +11,7 @@ import { MovieDetails } from 'src/app/shared/models/MovieDetails';
 export class MovieDetailsComponent implements OnInit {
   movie!: MovieDetails;
   movieId!: number;
-
+  // public newDate = new Date(this.movie.releaseDate);
   constructor(
     private movieService: MoviesService,
     private route: ActivatedRoute

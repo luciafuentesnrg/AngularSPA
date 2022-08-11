@@ -1,6 +1,7 @@
 .bg-genrebtn {
   border-radius: 40%;
   background-color: rgb(40, 165, 48);
+  padding-left: 10px;
 }
 
 .bg-btnReview {

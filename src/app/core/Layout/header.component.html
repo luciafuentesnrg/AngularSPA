@@ -28,15 +28,46 @@
       </li>
     </ul>
     <div style="position: fixed; right: 2%">
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div *ngIf="!isLoggedIn">
+        <a
+          class="btn btn-primary"
+          [routerLink]="'/Account/Login'"
+          role="button"
+          style="margin-right: 12px"
+          >Login</a
+        >
+        <a
+          class="btn btn-primary"
+          [routerLink]="'/Account/Register'"
+          role="button"
+          style="margin-right: 12px"
+          >Register</a
+        >
+        <a
+          class="btn btn-primary"
+          [routerLink]="'/Admin/Create-Movie'"
+          role="button"
+          >Create Movie</a
+        >
+      </div>
+      <div *ngIf="isLoggedIn">
+        <p style="margin-right: 16px; display: inline">
+          Hi {{ currentUser.given_name }} {{ currentUser.family_name }}
+        </p>
+        <a
+          class="btn btn-primary"
+          [routerLink]="'/Account/Login'"
+          role="button"
+          (click)="logout()"
+          >Logout</a
+        >
+        <a
+          class="btn btn-primary"
+          [routerLink]="'/Admin/Create-Movie'"
+          role="button"
+          >Create Movie</a
+        >
+      </div>
     </div>
   </div>
 </nav>

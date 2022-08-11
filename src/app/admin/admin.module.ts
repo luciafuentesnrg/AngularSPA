@@ -6,16 +6,16 @@ import { CreateCastComponent } from './create-cast.component';
 import { TopPurchasesComponent } from './top-purchases.component';
 import { CreateMovieComponent } from './create-movie.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminGuard } from '../core/Guards/admin.guard';
 
 @NgModule({
   declarations: [
     CreateCastComponent,
     TopPurchasesComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule
-  ]
+  imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
+  providers: [AdminGuard],
 })
-export class AdminModule { }
+export class AdminModule {}

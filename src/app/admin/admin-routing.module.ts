@@ -4,6 +4,7 @@ import { CreateCastComponent } from './create-cast.component';
 import { CreateMovieComponent } from './create-movie.component';
 import { TopPurchasesComponent } from './top-purchases.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: 'Create-Movie', component: CreateMovieComponent },
   { path: 'Create-Cast', component: CreateCastComponent },
@@ -11,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],
   exports: [RouterModule],
 })
 export class AdminRoutingModule {}

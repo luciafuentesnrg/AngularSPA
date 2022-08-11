@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <div class="alert alert-primary" role="alert" *ngIf="flag">
+    Account logged in Successfully!
+  </div>
+  <div class="alert alert-primary" role="alert" *ngIf="failed">
+    You failed to login, please check credentials!
+  </div>
+  <div class="d-flex justify-content-left">
+    <form #loginForm="ngForm" (submit)="loginUser(loginForm)">
+      <div class="form-group">
+        <label for="name">Email: </label>
+        <input
+          type="text"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control-inline"
+          style="margin: 12px"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Password: </label>
+        <input
+          type="text"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control-inline"
+          style="margin: 12px"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="submit"
+          value="Login"
+          style="margin-bottom: 12px"
+          [disabled]="!loginForm.valid"
+        />
+      </div>
+    </form>
+  </div>
+</div>
