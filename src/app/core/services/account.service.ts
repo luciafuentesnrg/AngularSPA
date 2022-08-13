@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models/User';
   providedIn: 'root',
 })
 export class AccountService {
-  private currentUserSubject = new BehaviorSubject<any>({} as any);
+  private currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable();
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
@@ -22,7 +22,7 @@ export class AccountService {
 
   Login(login: UserLogIn): Observable<boolean> {
     return this.http
-      .post('https://localhost:7187/api/Account/login', login)
+      .post('https://localhost:7079/api/Account/login', login)
       .pipe(
         map((response: any) => {
           if (response) {
@@ -43,7 +43,7 @@ export class AccountService {
 
   Register(registration: UserRegister): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:7187/api/Account/register',
+      'https://localhost:7079/api/Account/register',
       registration
     );
   }
@@ -53,9 +53,18 @@ export class AccountService {
 
     if (tokenValue && !this.jwtHelper.isTokenExpired(tokenValue)) {
       const decodedToken = this.jwtHelper.decodeToken(tokenValue);
-      console.log(decodedToken.isAdmin);
       this.currentUserSubject.next(decodedToken);
       this.isLoggedInSubject.next(true);
+    }
+  }
+
+  validateJWT() {
+    //Code to validate token goes here
+    var tokenValue = localStorage.getItem('token');
+    if (tokenValue != null) {
+      const decodedToken = this.jwtHelper.decodeToken(tokenValue);
+      this.isLoggedInSubject.next(true);
+      this.currentUserSubject.next(decodedToken);
     }
   }
 }
